@@ -1,12 +1,12 @@
+var humanScore = 0;
+var computerScore = 0;
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-
 function getComputerChoice() {
   const computerChoice = getRandomInt(3);
-
-  console.log(computerChoice);
 
   if (computerChoice == 0) {
     return "rock";
@@ -23,7 +23,6 @@ function getHumanChoice() {
     alert("You put the incorrect term!");
     getHumanChoice()
   }
+  humanScore += 1;
   return userInput;
 }
-
-console.log(getHumanChoice())
