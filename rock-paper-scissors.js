@@ -18,7 +18,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  const userInput = prompt("Make your choice\nrock, paper or scissors");
+  const userInput = prompt("Make your choice\nrock, paper or scissors").toLowerCase();
   if (userInput != "rock" && userInput != "paper" && userInput != "scissors") {
     alert("You put the incorrect term!");
     getHumanChoice()
@@ -26,3 +26,32 @@ function getHumanChoice() {
   humanScore += 1;
   return userInput;
 }
+
+function playRound(humanChoice, computerChoice) {
+
+  if ((humanChoice === "rock" && computerChoice === "scissors")
+    || (humanChoice === "paper" && computerChoice === "rock")
+    || (humanChoice === "scissors" && computerChoice === "paper")) {
+
+    humanScore += 1;
+    console.log("You Win! " + humanChoice + " beats " + computerChoice);
+  }
+
+  else if ((humanChoice === "rock" && computerChoice === "rock")
+    || (humanChoice === "paper" && computerChoice === "paper")
+    || (humanChoice === "scissors" && computerChoice === "scissors")) {
+
+    console.log("Tie!");
+  }
+
+  else {
+
+    computerScore *= 1;
+    console.log("You Lose! " + computerChoice + " beats " + humanChoice);
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
